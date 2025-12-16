@@ -10,6 +10,7 @@ This project aims to build a robust system for detecting fraudulent job postings
 -   Data loaded from `fake_job_postings.csv` (Kaggle).
 -   Comprehensive Exploratory Data Analysis (EDA) completed, identifying severe class imbalance and missing data issues.
 -   File structure and GitHub repository initialized.
+-   Comprehensive Preprocessing
 
 ## Setup
 To replicate this project, clone the repository and ensure you have the required packages installed (see `requirements.txt`).
