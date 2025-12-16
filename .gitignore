@@ -1,7 +1,7 @@
 
 # Ignore large data files that are not needed
 data/raw/
-data/processed
+data/processed/
 # Ignore Python build artifacts and system files
 __pycache__/
 *.pyc
