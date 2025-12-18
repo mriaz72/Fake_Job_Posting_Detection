@@ -1,0 +1,6 @@
+{
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "num_documents": 300,
+    "data_source": "raw_fake_job_postings.csv",
+    "document_policy": "real_jobs_only"
+}
