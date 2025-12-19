@@ -7,3 +7,4 @@ textstat
 faiss-cpu
 langchain-community
 sentence-transformers
+pyngrok
