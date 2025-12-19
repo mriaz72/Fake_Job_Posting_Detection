@@ -1,16 +1,27 @@
+# 🛡️ FraudShield AI: Fake Job Posting Detector
 
-# 🕵️ Fake Job Detection using Machine Learning and RAG
+FraudShield AI is an end-to-end machine learning application designed to detect fraudulent job postings using a hybrid approach of **XGBoost Classification** and **RAG (Retrieval-Augmented Generation)**.
 
-## Project Overview
-This project aims to build a robust system for detecting fraudulent job postings using a multi-stage approach:
-1.  **Machine Learning (ML) Classification:** A standard ML model (e.g., Logistic Regression, Random Forest, or XGBoost) to classify postings as real or fake based on structured and processed text features.
-2.  **Retrieval-Augmented Generation (RAG):** Using a retrieval component (vector database) and a large language model (LLM) to provide explanations or further verification for borderline cases.
+## 🚀 Features
+- **Machine Learning Analysis:** Uses an XGBoost model trained on lexical, metadata, and readability features to predict the probability of fraud.
+- **Explainable AI (RAG):** If a job is flagged as suspicious, the system retrieves similar verified legitimate jobs from a FAISS vector store to highlight discrepancies.
+- **Interactive UI:** A clean Streamlit interface for easy job analysis.
 
-## Current Progress (Phase 1: EDA)
--   Data loaded from `fake_job_postings.csv` (Kaggle).
--   Comprehensive Exploratory Data Analysis (EDA) completed, identifying severe class imbalance and missing data issues.
--   File structure and GitHub repository initialized.
--   Comprehensive Preprocessing
+## 🛠️ Tech Stack
+- **Language:** Python
+- **ML Framework:** XGBoost, Scikit-Learn
+- **Vector Database:** FAISS
+- **Readability Metrics:** Textstat
+- **Embeddings:** HuggingFace Transformers
+- **UI:** Streamlit
 
-## Setup
-To replicate this project, clone the repository and ensure you have the required packages installed (see `requirements.txt`).
+## 📂 Project Structure
+- `src/`: Core logic including preprocessing, inference, and RAG engine.
+- `models/`: Pre-trained models and scalers.
+- `main.py`: The central pipeline orchestrator.
+- `app.py`: The Streamlit dashboard.
+
+## ⚙️ Setup & Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/mriaz72/Fake_Job_Posting_Detection](https://github.com/mriaz72/Fake_Job_Posting_Detection)
