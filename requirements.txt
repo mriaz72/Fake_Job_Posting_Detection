@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+xgboost
+joblib
+textstat
+faiss-cpu
+langchain-community
+sentence-transformers
