@@ -22,7 +22,7 @@ def extract_text_features(text: str) -> dict:
     words = text.split()
     word_count = len(words)
     unique_word_count = len(set(words))
-    
+
     try:
         flesch = textstat.flesch_reading_ease(text)
         dale = textstat.dale_chall_readability_score(text)
@@ -52,8 +52,8 @@ def prepare_features(raw_input: dict, feature_order: list) -> np.ndarray:
         "has_benefits": int(bool(str(raw_input.get("benefits", "")).strip())),
         "salary_explicit": int(bool(str(raw_input.get("salary_range", "")).strip())),
         "log_company_credibility": raw_input.get("log_company_credibility", 0.0),
-        
-        # Mapping the missing categorical features 
+
+        # Mapping the missing categorical features
         # (Using .get(key, 0) to prevent the warnings you saw)
         "location_clean_enc": raw_input.get("location_clean_enc", 0),
         "required_experience_clean_enc": raw_input.get("required_experience_clean_enc", 0),

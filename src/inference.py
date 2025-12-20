@@ -7,13 +7,15 @@ import joblib
 import numpy as np
 import os
 
-# Define paths relative to this file or absolute
-BASE_DIR = "/content/drive/MyDrive/Fake_Job_Posting_Detection"
-MODEL_PATH = os.path.join(BASE_DIR, "models/xgb_model.pkl")
-SCALER_PATH = os.path.join(BASE_DIR, "models/scaler.pkl")
-FEATURE_ORDER_PATH = os.path.join(BASE_DIR, "models/feature_order.pkl")
+# 1. SET RELATIVE PATHS
+# This finds the 'Fake_Job_Posting_Detection' root folder
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Global variables for model assets
+MODEL_PATH = os.path.join(BASE_DIR, "models", "xgb_model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "models", "scaler.pkl")
+FEATURE_ORDER_PATH = os.path.join(BASE_DIR, "models", "feature_order.pkl")
+
+# 2. LOAD ASSETS
 model = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
 feature_order = joblib.load(FEATURE_ORDER_PATH)
@@ -25,20 +27,20 @@ def predict_fraud(raw_input: dict, threshold=0.5):
     try:
         # 1. Prepare Features
         X = prepare_features(raw_input, feature_order)
-        
+
         # 2. Scale Features
         X_scaled = scaler.transform(X)
-        
+
         # 3. Predict
         prob = model.predict_proba(X_scaled)[0, 1]
         label = int(prob >= threshold)
-        
+
         return {
             "is_fraud": label,
             "confidence": round(float(prob), 3),
             "status": "success"
         }
-        
+
     except KeyError as e:
         # This catch helps us identify exactly which key is missing
         return {
